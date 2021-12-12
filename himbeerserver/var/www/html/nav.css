@@ -1,0 +1,30 @@
+div#nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 10%;
+	background-color: #bd1143;
+	color: white;
+}
+
+div.navbtn {
+	position: absolute;
+	top: 12.5%;
+	width: 5%;
+	height: 75%;
+	background-color: #d5295b;
+	cursor: pointer;
+}
+
+div.navbtn:hover {
+	background-color: #e5396b;
+}
+
+div#sb_open {
+	left: 1.25%;
+}
+
+div#acc {
+	left: 7.5%;
+}
