@@ -1,0 +1,9 @@
+Package: himbeerserver
+Source: https://github.com/HimbeerserverDE/www.himbeerserver.de
+Maintainer: HimbeerserverDE
+Section: web
+Description: The new Himbeerserver website
+Version: 0.0.0
+Architecture: all
+Priority: optional
+Build-Depends: apache2 lua5.3
