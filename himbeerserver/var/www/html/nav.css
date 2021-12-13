@@ -15,6 +15,10 @@ div.navbtn {
 	height: 75%;
 	background-color: #d5295b;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 200%;
 }
 
 div.navbtn:hover {
@@ -27,4 +31,35 @@ div#sb_open {
 
 div#acc {
 	left: 7.5%;
+}
+
+div#sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background-color: #c5194b;
+	opacity: 0;
+}
+
+div.sb_btn {
+	position: absolute;
+	left: 15%;
+	width: 70%;
+	height: 7.5%;
+	background-color: #d5295b;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 200%;
+}
+
+div.sb_btn:hover {
+	background-color: #e5396b;
+}
+
+div#sb_close {
+	top: 5%;
 }
