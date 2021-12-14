@@ -1,3 +1,8 @@
+body {
+	background-color: #ffc5f7;
+	font-family: sans-serif;
+}
+
 div#nav {
 	position: fixed;
 	top: 0;
@@ -64,4 +69,13 @@ div.sb_btn:hover {
 
 div#sb_close {
 	top: 5%;
+}
+
+div#container {
+	position: fixed;
+	top: 10%;
+	right: 0;
+	width: 100%;
+	height: 90%;
+	transition-duration: 1s;
 }
