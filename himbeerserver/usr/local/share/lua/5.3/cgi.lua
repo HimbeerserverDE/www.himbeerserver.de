@@ -99,7 +99,6 @@ end
 
 function cgi.set_cookie(name, cookie)
 	cookies[name] = cookie
-	cookies[name]._recv = false
 end
 
 -- custom headers
@@ -120,28 +119,26 @@ end
 local function set_cookies()
 	local cookie = ""
 	for name, c in pairs(cookies) do
-		if not c._recv then
-			cookie = cookie .. name .. "="
-			cookie = cookie .. cgi.encode_uri(c.value or "")
+		cookie = cookie .. name .. "="
+		cookie = cookie .. cgi.encode_uri(c.value or "")
 
-			if c.domain then
-				cookie = cookie .. "; Domain=" .. c.domain
-			end
-			if c.path then
-				cookie = cookie .. "; Path=" .. c.path
-			end
-			if c.max_age then
-				cookie = cookie .. "; MaxAge=" .. tostring(c.max_age)
-			end
-			if c.http_only then
-				cookie = cookie .. "; HttpOnly"
-			end
-			if c.https_only then
-				cookie = cookie .. "; Secure"
-			end
-			if c.same_site then
-				cookie = cookie .. "; SameSite=" .. c.same_site
-			end
+		if c.domain then
+			cookie = cookie .. "; Domain=" .. c.domain
+		end
+		if c.path then
+			cookie = cookie .. "; Path=" .. c.path
+		end
+		if c.max_age then
+			cookie = cookie .. "; MaxAge=" .. tostring(c.max_age)
+		end
+		if c.http_only then
+			cookie = cookie .. "; HttpOnly"
+		end
+		if c.https_only then
+			cookie = cookie .. "; Secure"
+		end
+		if c.same_site then
+			cookie = cookie .. "; SameSite=" .. c.same_site
 		end
 	end
 
