@@ -103,6 +103,10 @@ function cgi.set_cookie(name, cookie)
 end
 
 -- custom headers
+function cgi.request_header(name)
+	return os.getenv("HTTP_" .. name:upper())
+end
+
 local headers_complete = false
 function cgi.header(key, value)
 	if not headers_complete then
