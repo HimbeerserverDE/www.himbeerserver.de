@@ -42,6 +42,7 @@ div#sidebar {
 	height: 100%;
 	background-color: #c5194b;
 	opacity: 0;
+	transition-duration: 1s;
 }
 
 div.sb_btn {
