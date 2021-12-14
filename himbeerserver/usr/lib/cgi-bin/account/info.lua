@@ -2,4 +2,7 @@
 require "cgi"
 
 cgi.content_type("text/plain")
+
+
+
 cgi.done()

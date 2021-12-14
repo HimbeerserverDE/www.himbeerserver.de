@@ -42,8 +42,20 @@ local function parse_params(dst, src)
 	end
 end
 
+local function params_tostring(src)
+	local dst = ""
+	for k, v in pairs(src) do
+		local kv = k .. "=" .. cgi.encode_uri(v)
+		dst = dst .. kv .. "&"
+	end
+
+	return dst:sub(1, #dst - 1)
+end
+
+-- method
 cgi.method = os.getenv("REQUEST_METHOD")
 
+-- GET/POST params
 cgi.get = {}
 cgi.post = {}
 
@@ -59,6 +71,38 @@ elseif cgi.method == "POST" then
 	end
 end
 
+-- constants for SameSite attribute
+cgi.none = "None"
+cgi.lax = "Lax"
+cgi.strict = "Strict"
+
+-- cookies
+local cookies = {}
+
+local cookie = os.getenv("HTTP_COOKIE")
+if cookie then
+	local c = {}
+	parse_params(c, cookie)
+
+	for k, v in pairs(c) do
+		cookies[k] = {
+			value = v,
+			_recv = true,
+		}
+	end
+end
+
+function cgi.get_cookie(name)
+	if not cookies[name] then return nil end
+	return cookies[name].value
+end
+
+function cgi.set_cookie(name, cookie)
+	cookies[name] = cookie
+	cookies[name]._recv = false
+end
+
+-- custom headers
 local headers_complete = false
 function cgi.header(key, value)
 	if not headers_complete then
@@ -68,8 +112,44 @@ function cgi.header(key, value)
 	return not headers_complete
 end
 
+-- set cookies on exit
+local function set_cookies()
+	local cookie = ""
+	for name, c in pairs(cookies) do
+		if not c._recv then
+			cookie = cookie .. name .. "="
+			cookie = cookie .. cgi.encode_uri(c.value or "")
+
+			if c.domain then
+				cookie = cookie .. "; Domain=" .. c.domain
+			end
+			if c.path then
+				cookie = cookie .. "; Path=" .. c.path
+			end
+			if c.max_age then
+				cookie = cookie .. "; MaxAge=" .. tostring(c.max_age)
+			end
+			if c.http_only then
+				cookie = cookie .. "; HttpOnly"
+			end
+			if c.https_only then
+				cookie = cookie .. "; Secure"
+			end
+			if c.same_site then
+				cookie = cookie .. "; SameSite=" .. c.same_site
+			end
+		end
+	end
+
+	if #cookie > 0 then
+		cgi.header("Set-Cookie", cookie)
+	end
+end
+
+-- (custom) content
 function cgi.content(data)
 	if not headers_complete then
+		set_cookies()
 		print()
 		headers_complete = true
 	end
@@ -81,14 +161,18 @@ function cgi.content(data)
 	return not not data
 end
 
+-- finish response
 function cgi.done()
 	if not headers_complete then
 		cgi.content()
 	end
+
+	os.exit(0)
 end
 
+-- frequently used header utilities
 function cgi.content_type(type)
-	return cgi.header("Content-type", type)
+	return cgi.header("Content-Type", type)
 end
 
 function cgi.status(code)
