@@ -26,10 +26,7 @@ function sidebar_close() {
 }
 
 function sidebar_rd(path) {
-	sidebar_close();
-	setTimeout(_ => {
-		document.location.href = path;
-	}, 1000);
+	document.location.href = path;
 }
 
 function account_info() {
