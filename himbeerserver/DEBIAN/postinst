@@ -1,0 +1,15 @@
+#!/bin/bash
+
+luarocks install http
+if [ $? != 0 ]; then
+	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
+	exit 1
+fi
+
+luarocks install lunajson
+if [ $? != 0 ]; then
+	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
+	exit 1
+fi
+
+echo -e " [\e[32m✓\e[0m] Successfully installed himbeerserver"

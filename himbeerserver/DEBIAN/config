@@ -1,0 +1,9 @@
+#!/bin/bash
+
+source /usr/share/debconf/confmodule
+
+db_input high himbeerserver/client_id
+db_go
+
+db_input high himbeerserver/client_secret
+db_go

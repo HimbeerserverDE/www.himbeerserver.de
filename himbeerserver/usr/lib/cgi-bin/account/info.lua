@@ -1,6 +1,12 @@
 #!/usr/bin/env lua
-require "cgi"
+
+local cgi = require "cgi"
+local auth = require "auth"
+local json = require "lunajson"
+
+auth.require_login()
 
 cgi.content_type("application/json")
-cgi.content("{}")
+cgi.content(json.encode(auth.user_info()))
+
 cgi.done()

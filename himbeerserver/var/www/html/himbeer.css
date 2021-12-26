@@ -47,7 +47,7 @@ div#sidebar {
 	height: 100%;
 	background-color: #c5194b;
 	opacity: 0;
-	transition-duration: 1s;
+	transition-duration: 0.4s;
 }
 
 div.sb_btn {
@@ -77,5 +77,9 @@ div#container {
 	right: 0;
 	width: 100%;
 	height: 90%;
-	transition-duration: 1s;
+	transition-duration: 0.4s;
+}
+
+div#container a {
+	color: black;
 }

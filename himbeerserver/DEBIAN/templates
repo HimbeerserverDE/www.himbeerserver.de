@@ -1,0 +1,7 @@
+Template: himbeerserver/client_id
+Type: string
+Description: Please enter the OAuth App Client ID:
+
+Template: himbeerserver/client_secret
+Type: password
+Description: Please enter the OAuth App Client Secret:

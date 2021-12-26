@@ -6,16 +6,28 @@
 		<link rel="stylesheet" href="/himbeer.css">
 		<script src="/nav.js" defer></script>
 		<script src="/account.js" defer></script>
+		<script src="/account/user.js" defer></script>
+		<style>
+			img#avatar {
+				width: 128px;
+				height: 128px;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="container">
-			<!-- Insert content here -->
+			<!-- user info -->
+			<label id="username" for="avatar"></label><br>
+			<img id="avatar"><br>
+
+			<!-- actions -->
+			<a href="/cgi-bin/account/logout.lua">Log out</a>
 		</div>
 		<div id="nav">
 			<div id="sb_open" class="navbtn" onclick="sidebar_open()">
 				&#8801;
 			</div>
-			<div id="acc" class="navbtn" onclick="account_info()">
+			<div id="acc" class="navbtn">
 				&cross;
 			</div>
 		</div>

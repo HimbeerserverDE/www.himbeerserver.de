@@ -30,7 +30,7 @@ function sidebar_rd(path) {
 }
 
 function account_info() {
-	document.location.href = "/account";
+	document.location.href = "/cgi-bin/account/redirect.lua";
 }
 
 let i = 1;

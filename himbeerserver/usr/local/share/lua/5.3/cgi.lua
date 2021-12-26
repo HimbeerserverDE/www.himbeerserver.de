@@ -1,5 +1,15 @@
+local json = require "lunajson"
+
 cgi = {}
 
+-- constants
+cgi.default_session_lifetime = os.time() + 3153600
+
+cgi.none = "None"
+cgi.lax = "Lax"
+cgi.strict = "Strict"
+
+-- global helpers
 function string.split(self, sep)
 	if not sep then sep = "%s" end
 
@@ -9,6 +19,18 @@ function string.split(self, sep)
 	end
 
 	return t
+end
+
+function string.fromhex(self)
+	return (self:gsub("..", function(cc)
+		return string.char(tonumber(cc, 16))
+	end))
+end
+
+function string.tohex(self)
+	return (self:gsub(".", function(c)
+		return string.format("%02x", string.byte(c))
+	end))
 end
 
 function cgi.encode_uri(str)
@@ -52,6 +74,16 @@ local function params_tostring(src)
 	return dst:sub(1, #dst - 1)
 end
 
+local function parse_cookies(dst, src)
+	for _, pair in ipairs(src:split("; ")) do
+		local kv = pair:split("=")
+		local key = kv[1]
+		local value = kv[2]
+
+		dst[key] = cgi.decode_uri(value)
+	end
+end
+
 -- method
 cgi.method = os.getenv("REQUEST_METHOD")
 
@@ -71,24 +103,16 @@ elseif cgi.method == "POST" then
 	end
 end
 
--- constants for SameSite attribute
-cgi.none = "None"
-cgi.lax = "Lax"
-cgi.strict = "Strict"
-
 -- cookies
 local cookies = {}
 
 local cookie = os.getenv("HTTP_COOKIE")
 if cookie then
 	local c = {}
-	parse_params(c, cookie)
+	parse_cookies(c, cookie)
 
 	for k, v in pairs(c) do
-		cookies[k] = {
-			value = v,
-			_recv = true,
-		}
+		cookies[k] = {value = v}
 	end
 end
 
@@ -98,6 +122,7 @@ function cgi.get_cookie(name)
 end
 
 function cgi.set_cookie(name, cookie)
+	cookie._modified = true
 	cookies[name] = cookie
 end
 
@@ -117,34 +142,82 @@ end
 
 -- set cookies on exit
 local function set_cookies()
-	local cookie = ""
 	for name, c in pairs(cookies) do
-		cookie = cookie .. name .. "="
-		cookie = cookie .. cgi.encode_uri(c.value or "")
+		if c._modified then
+			local cookie = name .. "=" .. cgi.encode_uri(c.value or "")
 
-		if c.domain then
-			cookie = cookie .. "; Domain=" .. c.domain
-		end
-		if c.path then
-			cookie = cookie .. "; Path=" .. c.path
-		end
-		if c.max_age then
-			cookie = cookie .. "; MaxAge=" .. tostring(c.max_age)
-		end
-		if c.http_only then
-			cookie = cookie .. "; HttpOnly"
-		end
-		if c.https_only then
-			cookie = cookie .. "; Secure"
-		end
-		if c.same_site then
-			cookie = cookie .. "; SameSite=" .. c.same_site
+			if c.domain then
+				cookie = cookie .. "; Domain=" .. c.domain
+			end
+			if c.path then
+				cookie = cookie .. "; Path=" .. c.path
+			end
+			if c.expires then
+				cookie = cookie .. "; Expires=" .. c.expires
+			end
+			if c.http_only then
+				cookie = cookie .. "; HttpOnly"
+			end
+			if c.https_only then
+				cookie = cookie .. "; Secure"
+			end
+			if c.same_site then
+				cookie = cookie .. "; SameSite=" .. c.same_site
+			end
+
+			cgi.header("Set-Cookie", cookie)
 		end
 	end
+end
 
-	if #cookie > 0 then
-		cgi.header("Set-Cookie", cookie)
+-- sessions
+local f = io.open("/var/lib/himbeerserver/sessions.json", "r")
+local sessions = json.decode(f:read("*a"))
+f:close()
+
+for himbeer_session, session in pairs(sessions) do
+	if expires and os.time() >= session.expires then
+		sessions[himbeer_session] = nil
 	end
+end
+
+local function save_session_map()
+	local f = io.open("/var/lib/himbeerserver/sessions.json", "w")
+	f:write(json.encode(sessions))
+	f:close()
+end
+
+function cgi.get_session()
+	local himbeer_session = cgi.get_cookie("HimbeerSession")
+	if not himbeer_session then return {} end
+
+	return sessions[himbeer_session] or {}
+end
+
+function cgi.set_session(data)
+	local himbeer_session = cgi.get_cookie("HimbeerSession")
+	if not himbeer_session then
+		-- if session does not exist, create it
+		local f = io.open("/dev/random", "r")
+		himbeer_session = f:read(32):tohex()
+		f:close()
+
+		cgi.set_cookie("HimbeerSession", {
+			path = "/",
+			expires = cgi.date(data.expires),
+			http_only = true,
+			https_only = false, -- ToDo: TLS support
+			same_site = cgi.strict,
+			value = himbeer_session,
+		})
+	end
+
+	sessions[himbeer_session] = data
+end
+
+-- special date format
+function cgi.date(t)
+	return os.date("!%a, %d %b %Y %H:%M:%S GMT", t)
 end
 
 -- (custom) content
@@ -168,6 +241,7 @@ function cgi.done()
 		cgi.content()
 	end
 
+	save_session_map()
 	os.exit(0)
 end
 
