@@ -3,7 +3,7 @@ function log_in() {
 	document.cookie = "LoginRedirect=" + document.location.href +
 			"; Path=/; SameSite=Strict";
 
-	document.location.href = "/cgi-bin/account/login.lua";
+	document.location.href = "/account/login.html";
 }
 
 function user_info(callback) {

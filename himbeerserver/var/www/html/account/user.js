@@ -1,7 +1,9 @@
 user_info(resp => {
+	let provider = document.getElementById("provider");
 	let username = document.getElementById("username");
 	let avatar = document.getElementById("avatar");
 
-	username.innerText = resp.login;
-	avatar.src = resp.avatar_url;
+	provider.innerText = "OAuth Provider: " + resp.provider;
+	username.innerText = resp.name;
+	avatar.src = resp.avatar;
 });

@@ -1,7 +1,15 @@
-Template: himbeerserver/client_id
+Template: himbeerserver/github_client_id
 Type: string
-Description: Please enter the OAuth App Client ID:
+Description: Please enter the GitHub OAuth App Client ID:
 
-Template: himbeerserver/client_secret
+Template: himbeerserver/github_client_secret
 Type: password
-Description: Please enter the OAuth App Client Secret:
+Description: Please enter the GitHub OAuth App Client Secret:
+
+Template: himbeerserver/discord_client_id
+Type: string
+Description: Please enter the Discord OAuth App Client ID:
+
+Template: himbeerserver/discord_client_secret
+Type: password
+Description: Please enter the Discord OAuth App Client Secret:

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Himbeerserver - Choose OAuth Service Provider</title>
+		<link rel="stylesheet" href="/himbeer.css">
+		<script src="/nav.js" defer></script>
+		<script src="/account.js" defer></script>
+		<style>
+			.provider {
+				cursor: pointer;
+			}
+
+			.provider:hover {
+				opacity: 0.8;
+			}
+
+			#githubIcon {
+				width: 32px;
+				height: 32px;
+			}
+
+			#discordIcon {
+				width: 32px;
+				height: 32px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<center>
+				<fieldset>
+					<legend>Authenticate with</legend>
+
+					<a class="provider" href="/cgi-bin/account/login.lua?provider=github">
+						<img id="githubIcon" src="/account/github.ico" alt="GitHub">
+					</a>
+					<br>
+					<a class="provider" href="/cgi-bin/account/login.lua?provider=discord">
+						<img id="discordIcon" src="/account/discord.ico" alt="Discord">
+					</a>
+				</fieldset>
+			</center>
+		</div>
+		<div id="nav">
+			<div id="sb_open" class="navbtn" onclick="sidebar_open()">
+				&#8801;
+			</div>
+			<div id="acc" class="navbtn">
+				&cross;
+			</div>
+		</div>
+		<div id="sidebar">
+			<div id="sb_close" class="sb_btn" onclick="sidebar_close()">
+				&#10006;
+			</div>
+		</div>
+	</body>
+</html>

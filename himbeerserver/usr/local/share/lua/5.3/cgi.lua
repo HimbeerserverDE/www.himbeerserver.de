@@ -133,6 +133,10 @@ end
 
 local headers_complete = false
 function cgi.header(key, value)
+	if not value then
+		return false
+	end
+
 	if not headers_complete then
 		print(key .. ": " .. value)
 	end
