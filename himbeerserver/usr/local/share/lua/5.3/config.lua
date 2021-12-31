@@ -18,7 +18,7 @@ function config.get(question)
 	end
 
 	local cmd = "echo 'GET himbeerserver/" .. question .. "' | " ..
-			"sudo debconf-communicate himbeerserver"
+			"sudo debconf-communicate himbeerserver 2>/dev/null"
 
 	local handle = io.popen(cmd)
 	local ret = split(handle:read("*a"), "\n")
