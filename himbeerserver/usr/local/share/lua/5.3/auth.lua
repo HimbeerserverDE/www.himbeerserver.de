@@ -54,7 +54,7 @@ function auth.user_info()
 
 		local resp = json.decode(body)
 		return {
-			provider = "GitHub",
+			provider = "github",
 			name = resp.login,
 			avatar = resp.avatar_url,
 		}
@@ -86,7 +86,7 @@ function auth.user_info()
 
 		local resp = json.decode(body)
 		return {
-			provider = "Discord",
+			provider = "discord",
 			name = resp.username,
 			avatar = "https://cdn.discordapp.com/avatars/" ..
 					resp.id .. "/" .. resp.avatar .. ".png",

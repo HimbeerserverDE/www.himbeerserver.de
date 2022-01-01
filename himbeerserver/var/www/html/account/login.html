@@ -16,12 +16,7 @@
 				opacity: 0.8;
 			}
 
-			#githubIcon {
-				width: 32px;
-				height: 32px;
-			}
-
-			#discordIcon {
+			img.icon {
 				width: 32px;
 				height: 32px;
 			}
@@ -34,10 +29,10 @@
 					<legend>Authenticate with</legend>
 
 					<a class="provider" href="/cgi-bin/account/login.lua?provider=github">
-						<img id="githubIcon" src="/account/github.ico" alt="GitHub">
+						<img class="icon" src="/account/github.ico" alt="GitHub">
 					</a>
 					<a class="provider" href="/cgi-bin/account/login.lua?provider=discord">
-						<img id="discordIcon" src="/account/discord.ico" alt="Discord">
+						<img class="icon" src="/account/discord.ico" alt="Discord">
 					</a>
 				</fieldset>
 			</center>

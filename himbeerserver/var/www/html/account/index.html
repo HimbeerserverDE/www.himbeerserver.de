@@ -8,21 +8,24 @@
 		<script src="/account.js" defer></script>
 		<script src="/account/user.js" defer></script>
 		<style>
-			img#avatar {
-				width: 128px;
-				height: 128px;
+			img {
+				width: 32px;
+				height: 32px;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="container">
 			<!-- user info -->
-			<span id="provider">OAuth Provider: -</span><br>
-			<label id="username" for="avatar">-</label><br>
-			<img id="avatar"><br>
+			<label id="username"></label>
+			<img id="avatar" class="labeled" alt=""><br>
+			<label for="provider">OAuth Provider:</label>
+			<img id="provider" class="labeled" alt=""><br>
+
+			<br>
 
 			<!-- actions -->
-			<a href="/cgi-bin/account/logout.lua">Log out</a>
+			<a class="button" href="/cgi-bin/account/logout.lua">Log out</a>
 		</div>
 		<div id="nav">
 			<div id="sb_open" class="navbtn" onclick="sidebar_open()">

@@ -3,7 +3,7 @@ user_info(resp => {
 	let username = document.getElementById("username");
 	let avatar = document.getElementById("avatar");
 
-	provider.innerText = "OAuth Provider: " + resp.provider;
+	provider.src = "/account/" + resp.provider + ".ico";
 	username.innerText = resp.name;
 	avatar.src = resp.avatar;
 });

@@ -86,6 +86,23 @@ div#container a {
 	color: black;
 }
 
-fieldset {
+div#container fieldset {
 	border: 2px solid #bd1143;
+}
+
+div#container label, div#container .labeled {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+div#container a.button {
+	background-color: #bd1143;
+	border: 2px solid #bd1143;
+	color: white;
+	text-decoration: none;
+}
+
+div#container a.button:hover {
+	background-color: transparent;
+	color: black;
 }
