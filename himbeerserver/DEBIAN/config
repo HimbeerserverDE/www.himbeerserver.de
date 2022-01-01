@@ -5,6 +5,9 @@ source /usr/share/debconf/confmodule
 db_input high himbeerserver/domain
 db_go
 
+db_input high himbeerserver/email
+db_go
+
 db_input high himbeerserver/github_client_id
 db_go
 

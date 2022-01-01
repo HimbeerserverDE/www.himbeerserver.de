@@ -5,6 +5,9 @@ source /usr/share/debconf/confmodule
 db_get himbeerserver/domain
 DOMAIN=$RET
 
+db_get himbeerserver/email
+EMAIL=$RET
+
 HTTP_CONFIG=`cat /etc/himbeerserver/000-default.conf`
 HTTP_CONFIG=${HTTP_CONFIG//example.com/$DOMAIN}
 echo -n "$HTTP_CONFIG" > /etc/himbeerserver/000-default.conf
@@ -54,6 +57,12 @@ echo -e " [\e[32m✓\e[0m] Replaced apache2.conf     "
 a2enmod cgi
 if [ $? != 0 ]; then
 	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
+	exit 1
+fi
+
+certbot --apache -n --agree-tos --email "$EMAIL" --domains "$DOMAIN,www.$DOMAIN"
+if [ $? != 0 ]; then
+	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver (certbot), see above"
 	exit 1
 fi
 
