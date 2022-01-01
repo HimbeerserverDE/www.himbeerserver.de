@@ -4,7 +4,6 @@ let pages = {
 	"Web apps": "/apps",
 	"Guides": "/guides",
 	"Blog": "/blog",
-	"Contact": "/contact",
 };
 
 function sidebar_open() {

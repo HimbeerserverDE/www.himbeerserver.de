@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Himbeerserver - Choose OAuth Service Provider</title>
+		<link rel="icon" href="/icon.png">
 		<link rel="stylesheet" href="/himbeer.css">
 		<script src="/nav.js" defer></script>
 		<script src="/account.js" defer></script>
@@ -24,18 +25,16 @@
 	</head>
 	<body>
 		<div id="container">
-			<center>
-				<fieldset>
-					<legend>Authenticate with</legend>
+			<fieldset>
+				<legend>Authenticate with</legend>
 
-					<a class="provider" href="/cgi-bin/account/login.lua?provider=github">
-						<img class="icon" src="/account/github.ico" alt="GitHub">
-					</a>
-					<a class="provider" href="/cgi-bin/account/login.lua?provider=discord">
-						<img class="icon" src="/account/discord.ico" alt="Discord">
-					</a>
-				</fieldset>
-			</center>
+				<a class="provider" href="/cgi-bin/account/login.lua?provider=github">
+					<img class="icon" src="/account/github.ico" alt="GitHub">
+				</a>
+				<a class="provider" href="/cgi-bin/account/login.lua?provider=discord">
+					<img class="icon" src="/account/discord.ico" alt="Discord">
+				</a>
+			</fieldset>
 		</div>
 		<div id="nav">
 			<div id="sb_open" class="navbtn" onclick="sidebar_open()">
