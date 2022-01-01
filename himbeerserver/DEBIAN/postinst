@@ -25,6 +25,32 @@ fi
 
 echo -e " [\e[32m✓\e[0m] Replaced 000-default.conf     "
 
+a2enmod rewrite
+if [ $? != 0 ]; then
+	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
+	exit 1
+fi
+
+RDR_CONFIG=`cat /etc/himbeerserver/apache2.conf`
+RDR_CONFIG=${RDR_CONFIG//example.com/$DOMAIN}
+echo -n "$RDR_CONFIG" > /etc/himbeerserver/apache2.conf
+
+echo -en " [i] Replacing apache2.conf ...\r"
+
+rm /etc/apache2/apache2.conf
+if [ $? != 0 ]; then
+	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
+	exit 1
+fi
+
+ln -s /etc/himbeerserver/apache2.conf /etc/apache2/apache2.conf
+if [ $? != 0 ]; then
+	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
+	exit 1
+fi
+
+echo -e " [\e[32m✓\e[0m] Replaced apache2.conf     "
+
 a2enmod cgi
 if [ $? != 0 ]; then
 	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
