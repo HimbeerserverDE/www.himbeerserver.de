@@ -131,6 +131,7 @@ function cgi.request_header(name)
 	return os.getenv("HTTP_" .. name:upper())
 end
 
+local resp_headers = {}
 local headers_complete = false
 function cgi.header(key, value)
 	if not value then
@@ -138,6 +139,7 @@ function cgi.header(key, value)
 	end
 
 	if not headers_complete then
+		resp_headers[key] = value
 		print(key .. ": " .. value)
 	end
 
@@ -242,7 +244,19 @@ end
 -- finish response
 function cgi.done()
 	if not headers_complete then
-		cgi.content()
+		local body
+
+		local status = tonumber(resp_headers["Status"])
+		if status and status >= 400 and status < 600 then
+			-- error but no content: display error page
+			local f = io.open("/var/www/html/error/" .. tostring(status) .. ".html")
+			if f then
+				body = f:read("*a")
+				f:close()
+			end
+		end
+
+		cgi.content(body)
 	end
 
 	save_session_map()
