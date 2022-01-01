@@ -89,3 +89,7 @@ div#container a {
 fieldset {
 	border: 2px solid #bd1143;
 }
+
+fieldset legend {
+	color: #bd1143;
+}
