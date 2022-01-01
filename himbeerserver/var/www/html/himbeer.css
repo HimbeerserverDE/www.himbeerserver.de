@@ -97,12 +97,11 @@ div#container label, div#container .labeled {
 
 div#container a.button {
 	background-color: #bd1143;
-	border: 2px solid #bd1143;
 	color: white;
 	text-decoration: none;
+	padding: 0.5em;
 }
 
 div#container a.button:hover {
-	background-color: transparent;
-	color: black;
+	background-color: #e5396b;
 }
