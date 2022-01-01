@@ -1,5 +1,10 @@
 let pages = {
 	"Main Page": "/",
+	"Projects": "/projects",
+	"Web apps": "/apps",
+	"Guides": "/guides",
+	"Blog": "/blog",
+	"Contact": "/contact",
 };
 
 function sidebar_open() {
