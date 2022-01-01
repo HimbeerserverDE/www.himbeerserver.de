@@ -88,7 +88,8 @@ function auth.user_info()
 		return {
 			provider = "Discord",
 			name = resp.username,
-			avatar = nil, -- ToDo: somehow get avatar URL
+			avatar = "https://cdn.discordapp.com/avatars/" ..
+					resp.id .. "/" .. resp.avatar .. ".png",
 		}
 	end
 end
