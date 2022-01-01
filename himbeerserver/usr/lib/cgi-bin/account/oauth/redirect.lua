@@ -5,7 +5,12 @@ local config = require "config"
 local http_request = require "http.request"
 local json = require "lunajson"
 
-if cgi.method ~= "GET" or not cgi.get.code or not cgi.get.state then
+if cgi.method ~= "GET" then
+	cgi.status(405)
+	cgi.done()
+end
+
+if not cgi.get.code or not cgi.get.state then
 	if cgi.get.error == "access_denied" then
 		cgi.status(401)
 	else

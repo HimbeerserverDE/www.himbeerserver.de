@@ -4,7 +4,7 @@ local cgi = require "cgi"
 local config = require "config"
 
 if cgi.method ~= "GET" then
-	cgi.status(400)
+	cgi.status(405)
 	cgi.done()
 end
 
