@@ -74,10 +74,12 @@ div#sb_close {
 div#container {
 	position: fixed;
 	top: 10%;
+	left: 0;
 	right: 0;
-	width: 100%;
+	width: calc(100% - 4em);
 	height: 90%;
 	transition-duration: 0.4s;
+	margin: 2em;
 }
 
 div#container a {

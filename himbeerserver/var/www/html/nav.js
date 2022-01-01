@@ -12,7 +12,8 @@ function sidebar_open() {
 		container.style.width = 0;
 	} else {
 		bar.style.width = "20%";
-		container.style.width = "80%";
+		container.style.left = "20%";
+		container.style.width = "calc(80% - 4em)";
 	}
 }
 
@@ -22,7 +23,8 @@ function sidebar_close() {
 
 	bar.style.opacity = 0;
 	bar.style.width = 0;
-	container.style.width = "100%";
+	container.style.left = 0;
+	container.style.width = "calc(100% - 4em)";
 }
 
 function sidebar_rd(path) {
