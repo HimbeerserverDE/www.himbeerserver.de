@@ -210,7 +210,7 @@ function cgi.set_session(data)
 			path = "/",
 			expires = cgi.date(data.expires),
 			http_only = true,
-			https_only = false, -- ToDo: TLS support
+			https_only = true,
 			same_site = cgi.strict,
 			value = himbeer_session,
 		})

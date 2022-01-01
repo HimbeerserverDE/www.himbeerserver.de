@@ -40,9 +40,8 @@ if not client_id or not client_secret then
 	cgi.done()
 end
 
--- ToDo: TLS support
 local domain = config.get("domain")
-local rdr_uri = "http://" .. domain .. "/cgi-bin/account/oauth/redirect.lua"
+local rdr_uri = "https://" .. domain .. "/cgi-bin/account/oauth/redirect.lua"
 
 local token_uri, post_params
 if session.oauth.provider == "github" then

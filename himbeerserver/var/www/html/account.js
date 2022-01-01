@@ -1,7 +1,6 @@
 function log_in() {
-	// ToDo: TLS support
 	document.cookie = "LoginRedirect=" + document.location.href +
-			"; Path=/; SameSite=Strict";
+			"; Path=/; SameSite=Strict; Secure";
 
 	document.location.href = "/account/login.html";
 }

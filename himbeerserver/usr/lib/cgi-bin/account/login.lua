@@ -21,9 +21,8 @@ if not client_id then
 	cgi.done()
 end
 
--- ToDo: TLS support
 local domain = config.get("domain")
-local rdr_uri = "http://" .. domain .. "/cgi-bin/account/oauth/redirect.lua"
+local rdr_uri = "https://" .. domain .. "/cgi-bin/account/oauth/redirect.lua"
 
 local f = io.open("/dev/random", "r")
 local state = f:read(32):tohex()

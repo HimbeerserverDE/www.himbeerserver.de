@@ -9,7 +9,7 @@ function auth.log_in()
 		path = "/",
 		expires = nil, -- session cookie
 		http_only = false,
-		https_only = false, -- ToDo: TLS support
+		https_only = true,
 		same_site = cgi.strict,
 		value = os.getenv("SCRIPT_NAME"),
 	})
