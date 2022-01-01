@@ -7,4 +7,4 @@ Version: 0.0.0
 Architecture: all
 Priority: optional
 Depends: apache2, lua5.3, liblua5.3-dev, luarocks, sudo, libssl-dev, certbot, python3-certbot-apache
-Installed-Size: 465
+Installed-Size: 395
