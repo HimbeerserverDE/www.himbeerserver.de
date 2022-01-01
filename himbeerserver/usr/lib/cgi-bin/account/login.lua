@@ -9,14 +9,12 @@ if cgi.method ~= "GET" then
 end
 
 if cgi.get.provider ~= "github" and cgi.get.provider ~= "discord" then
-	-- ToDo: show error page
 	cgi.status(400)
 	cgi.done()
 end
 
 local client_id = config.get(cgi.get.provider .. "_client_id")
 if not client_id then
-	-- ToDo: show error page
 	cgi.status(500)
 	cgi.done()
 end

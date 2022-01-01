@@ -7,8 +7,7 @@ local json = require "lunajson"
 
 if cgi.method ~= "GET" or not cgi.get.code or not cgi.get.state then
 	if cgi.get.error == "access_denied" then
-		-- ToDo: show error page
-		cgi.status(403)
+		cgi.status(401)
 	else
 		cgi.status(400)
 	end
@@ -35,7 +34,6 @@ local client_id = config.get(session.oauth.provider .. "_client_id")
 local client_secret = config.get(session.oauth.provider .. "_client_secret")
 
 if not client_id or not client_secret then
-	-- ToDo: show error page
 	cgi.status(500)
 	cgi.done()
 end
