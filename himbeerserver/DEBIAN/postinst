@@ -1,5 +1,14 @@
 #!/bin/bash
 
+source /usr/share/debconf/confmodule
+
+db_get himbeerserver/domain
+DOMAIN=$RET
+
+HTTP_CONFIG=`cat /etc/himbeerserver/000-default.conf`
+HTTP_CONFIG=${HTTP_CONFIG//example.com/$DOMAIN}
+echo -n "$HTTP_CONFIG" > /etc/himbeerserver/000-default.conf
+
 echo -en " [i] Replacing 000-default.conf ...\r"
 
 rm /etc/apache2/sites-available/000-default.conf

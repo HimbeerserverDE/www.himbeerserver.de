@@ -41,7 +41,8 @@ if not client_id or not client_secret then
 end
 
 -- ToDo: TLS support
-local rdr_uri = "http://himbeerserver.de/cgi-bin/account/oauth/redirect.lua"
+local domain = config.get("domain")
+local rdr_uri = "http://" .. domain .. "/cgi-bin/account/oauth/redirect.lua"
 
 local token_uri, post_params
 if session.oauth.provider == "github" then

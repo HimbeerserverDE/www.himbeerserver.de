@@ -22,7 +22,8 @@ if not client_id then
 end
 
 -- ToDo: TLS support
-local rdr_uri = "http://himbeerserver.de/cgi-bin/account/oauth/redirect.lua"
+local domain = config.get("domain")
+local rdr_uri = "http://" .. domain .. "/cgi-bin/account/oauth/redirect.lua"
 
 local f = io.open("/dev/random", "r")
 local state = f:read(32):tohex()
