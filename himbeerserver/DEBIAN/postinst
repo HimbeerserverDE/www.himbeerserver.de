@@ -90,7 +90,7 @@ echo -en " [i] Markdown -> HTML ...\r"
 STATIC=`find /var/www/md -name "*.md"`
 for FILE in $STATIC; do
 	HTML=`echo "$FILE" | sed "s/\/md/\/html/" | sed "s/\\.md/\\.html/g"`
-	TITLE=`head -n 1 "$FILE" | sed "s/<!-- //" | sed "s/ -->//"`
+	TITLE=`head -n 1 "$FILE" | sed "s/<!-- title //" | sed "s/ -->//"`
 
 	pandoc --standalone --metadata title="$TITLE" "$FILE" -o "$HTML" 2>/dev/null
 	if [ $? != 0 ]; then
