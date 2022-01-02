@@ -1,7 +1,7 @@
 let pages = {
 	"Main Page": "/",
 	"Projects": "/projects",
-	"Web apps": "/apps",
+	"Web Apps": "/apps",
 	"Guides": "/guides",
 	"Blog": "/blog",
 };
