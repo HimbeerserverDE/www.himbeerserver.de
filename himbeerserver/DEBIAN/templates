@@ -1,23 +1,13 @@
+Template: himbeerserver/run_certbot
+Type: boolean
+Default: "true"
+Description: Run certbot to configure HTTPS? Select no if HTTPS is already working.
+
 Template: himbeerserver/domain
 Type: string
-Description: Enter the (sub)domain you wish to use. Example: himbeerserver.de
+Default: "himbeerserver.de"
+Description: Enter the (sub)domain you wish to use.
 
 Template: himbeerserver/email
 Type: string
 Description: Please specify the email address for certbot:
-
-Template: himbeerserver/github_client_id
-Type: string
-Description: Please enter the GitHub OAuth App Client ID:
-
-Template: himbeerserver/github_client_secret
-Type: password
-Description: Please enter the GitHub OAuth App Client Secret:
-
-Template: himbeerserver/discord_client_id
-Type: string
-Description: Please enter the Discord OAuth App Client ID:
-
-Template: himbeerserver/discord_client_secret
-Type: password
-Description: Please enter the Discord OAuth App Client Secret:
