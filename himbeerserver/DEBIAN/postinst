@@ -10,6 +10,7 @@ EMAIL=$RET
 
 HTTP_CONFIG=`cat /etc/himbeerserver/000-default.conf`
 HTTP_CONFIG=${HTTP_CONFIG//example.com/$DOMAIN}
+HTTP_CONFIG=${HTTP_CONFIG/webmaster@localhost/$EMAIL}
 echo -n "$HTTP_CONFIG" > /etc/himbeerserver/000-default.conf
 
 echo -en " [i] Replacing 000-default.conf ...\r"
