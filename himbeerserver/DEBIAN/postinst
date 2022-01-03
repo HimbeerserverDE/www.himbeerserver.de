@@ -85,19 +85,4 @@ if [ $? != 0 ]; then
 	exit 1
 fi
 
-echo -en " [i] Markdown -> HTML ...\r"
-
-STATIC=`find /var/www/md -name "*.md"`
-for FILE in $STATIC; do
-	HTML=`echo "$FILE" | sed "s/\/md/\/html/" | sed "s/\\.md/\\.html/g"`
-	TITLE=`head -n 1 "$FILE" | sed "s/<!-- title //" | sed "s/ -->//"`
-
-	pandoc --standalone --metadata title="$TITLE" "$FILE" -o "$HTML" 2>/dev/null
-	if [ $? != 0 ]; then
-		echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
-		exit 1
-	fi
-done
-
-echo -e " [\e[32m✓\e[0m] Markdown -> HTML    "
 echo -e " [\e[32m✓\e[0m] Successfully installed himbeerserver"

@@ -1,8 +1,6 @@
 file = {}
 
 function file.read(path)
-	path = "/var/www/html" .. path
-
 	local f = io.open(path, "r")
 	if not f then
 		return nil
@@ -15,8 +13,6 @@ function file.read(path)
 end
 
 function file.write(path, contents)
-	path = "/var/www/html" .. path
-
 	local f = io.open(path, "w")
 	if not f then
 		return false
@@ -28,7 +24,10 @@ function file.write(path, contents)
 	return true
 end
 
-function file.process(path, templates)
+function file.process(uri, templates)
+	local tmp = "/var/tmp/himbeerserver" .. uri
+	path = "/var/www/md" .. uri
+
 	local contents = file.read(path)
 	if not contents then
 		return nil
@@ -38,7 +37,19 @@ function file.process(path, templates)
 		contents = contents:gsub("${" .. template .. "}", value)
 	end
 
-	return contents
+	local lines = contents:split("\n")
+	local title = lines[1]:gsub("# ", "")
+	table.remove(lines, 1)
+
+	contents = table.concat(lines, "\n"):gsub("'", "\\'")
+
+	local cmd = 'echo -n \'' .. contents .. '\' | pandoc --standalone --metadata title="'
+			.. title .. '" '
+	local handle = io.popen(cmd)
+	local html = handle:read("*a")
+	handle:close()
+
+	return html
 end
 
 return file

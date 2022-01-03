@@ -3,7 +3,7 @@
 local cgi = require "cgi"
 local file = require "file"
 
-cgi.content(file.process("/index.html", {
+cgi.content(file.process("/index.md", {
 	name = "test",
 }))
 
