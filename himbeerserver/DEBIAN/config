@@ -2,14 +2,8 @@
 
 source /usr/share/debconf/confmodule
 
-db_input high himbeerserver/run_certbot
+db_input high himbeerserver/domain
 db_go
 
-db_get himbeerserver/run_certbot
-if [ "$RET" == "true" ]; then
-	db_input high himbeerserver/domain
-	db_go
-
-	db_input high himbeerserver/email
-	db_go
-fi
+db_input high himbeerserver/email
+db_go

@@ -1,8 +1,3 @@
-Template: himbeerserver/run_certbot
-Type: boolean
-Default: "true"
-Description: Run certbot to configure HTTPS? Select no if HTTPS is already working.
-
 Template: himbeerserver/domain
 Type: string
 Default: "himbeerserver.de"

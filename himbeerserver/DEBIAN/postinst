@@ -60,13 +60,10 @@ if [ $? != 0 ]; then
 	exit 1
 fi
 
-db_get himbeerserver/run_certbot
-if [ "$RET" == "true" ]; then
-	certbot --apache -n --agree-tos --email "$EMAIL" --domains "$DOMAIN,www.$DOMAIN"
-	if [ $? != 0 ]; then
-		echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
-		exit 1
-	fi
+certbot --apache -n --agree-tos --email "$EMAIL" --domains "$DOMAIN,www.$DOMAIN"
+if [ $? != 0 ]; then
+	echo -e " [\e[31m✗\e[0m] Error installing himbeerserver, see above"
+	exit 1
 fi
 
 echo -en " [i] Restarting apache2 ...\r"
