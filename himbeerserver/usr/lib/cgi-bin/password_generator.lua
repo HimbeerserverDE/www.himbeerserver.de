@@ -26,7 +26,7 @@ local function gen(from, len)
 	local result = ""
 	for i = 1, len do
 		local j = math.random(1, #from)
-		result = result .. from[j]
+		result = result .. from:sub(j, j)
 	end
 end
 
