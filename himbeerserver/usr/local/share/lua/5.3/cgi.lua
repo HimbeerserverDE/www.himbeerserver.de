@@ -2,9 +2,6 @@ local json = require "lunajson"
 
 cgi = {}
 
--- constants
-cgi.default_session_lifetime = os.time() + 3153600
-
 cgi.none = "None"
 cgi.lax = "Lax"
 cgi.strict = "Strict"
@@ -176,51 +173,6 @@ local function set_cookies()
 	end
 end
 
--- sessions
-local f = io.open("/var/lib/himbeerserver/sessions.json", "r")
-local sessions = json.decode(f:read("*a"))
-f:close()
-
-for himbeer_session, session in pairs(sessions) do
-	if expires and os.time() >= session.expires then
-		sessions[himbeer_session] = nil
-	end
-end
-
-local function save_session_map()
-	local f = io.open("/var/lib/himbeerserver/sessions.json", "w")
-	f:write(json.encode(sessions))
-	f:close()
-end
-
-function cgi.get_session()
-	local himbeer_session = cgi.get_cookie("HimbeerSession")
-	if not himbeer_session then return {} end
-
-	return sessions[himbeer_session] or {}
-end
-
-function cgi.set_session(data)
-	local himbeer_session = cgi.get_cookie("HimbeerSession")
-	if not himbeer_session then
-		-- if session does not exist, create it
-		local f = io.open("/dev/random", "r")
-		himbeer_session = f:read(32):tohex()
-		f:close()
-
-		cgi.set_cookie("HimbeerSession", {
-			path = "/",
-			expires = cgi.date(data.expires),
-			http_only = true,
-			https_only = true,
-			same_site = cgi.strict,
-			value = himbeer_session,
-		})
-	end
-
-	sessions[himbeer_session] = data
-end
-
 -- special date format
 function cgi.date(t)
 	return os.date("!%a, %d %b %Y %H:%M:%S GMT", t)
@@ -259,7 +211,6 @@ function cgi.done()
 		cgi.content(body)
 	end
 
-	save_session_map()
 	os.exit(0)
 end
 

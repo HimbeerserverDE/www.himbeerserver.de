@@ -6,5 +6,5 @@ Description: The new Himbeerserver website
 Version: 0.0.0
 Architecture: all
 Priority: optional
-Depends: apache2, lua5.3, liblua5.3-dev, luarocks, certbot, python3-certbot-apache, pandoc
-Installed-Size: 74
+Depends: apache2, lua5.3, liblua5.3-dev, certbot, python3-certbot-apache, pandoc
+Installed-Size: 65
