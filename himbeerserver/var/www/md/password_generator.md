@@ -11,11 +11,17 @@ ${strongest5}
 ${strong1}
 ${strong2}
 ${strong3}
+${strong4}
+${strong5}
 ## 32 Letters
 ${medium1}
 ${medium2}
 ${medium3}
+${medium4}
+${medium5}
 ## 16 Letters, digits
 ${weak1}
 ${weak2}
 ${weak3}
+${weak4}
+${weak5}
