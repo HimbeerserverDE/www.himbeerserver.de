@@ -29,7 +29,7 @@ local function gen(from, len)
 		result = result .. from:sub(j, j)
 	end
 
-	return result
+	return result:gsub("%%", "%%%%")
 end
 
 local passwords = {}
