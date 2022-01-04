@@ -8,8 +8,9 @@ local rand = f:read(64)
 f:close()
 
 local seed = 0
-for _, v in ipairs(rand) do
-	seed = seed + string.byte(v)
+for i = 1, #rand do
+	local c = rand:sub(i, i)
+	seed = seed + string.byte(c)
 end
 math.randomseed(seed)
 
