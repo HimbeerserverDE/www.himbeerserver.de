@@ -14,8 +14,8 @@ function string.split(self, sep)
 	if not sep then sep = "%s" end
 
 	local t = {}
-	for str in self:gmatch("([^" .. sep .. "]+)") do
-		table.insert(t, str)
+	for match in (self .. sep):gmatch("(.-)" .. sep) do
+		table.insert(t, match)
 	end
 
 	return t

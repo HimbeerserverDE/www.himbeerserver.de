@@ -1,5 +1,16 @@
 file = {}
 
+function string.split(self, sep)
+	if not sep then sep = "%s" end
+
+	local t = {}
+	for match in (self .. sep):gmatch("(.-)" .. sep) do
+		table.insert(t, match)
+	end
+
+	return t
+end
+
 function file.read(path)
 	local f = io.open(path, "r")
 	if not f then
@@ -34,17 +45,20 @@ function file.process(uri, templates)
 	end
 
 	for template, value in pairs(templates) do
-		contents = contents:gsub("${" .. template .. "}", value)
+		contents = contents:gsub("%${" .. template .. "}", value)
 	end
 
 	local lines = contents:split("\n")
 	local title = lines[1]:gsub("# ", "")
 	table.remove(lines, 1)
 
-	contents = table.concat(lines, "\n"):gsub("'", "\\'")
+	contents = table.concat(lines, "\n")
 
-	local cmd = 'echo -n \'' .. contents .. '\' | pandoc --standalone --metadata title="'
-			.. title .. '" '
+	local filename = os.tmpname()
+	file.write(filename, contents)
+
+	local cmd = 'pandoc --standalone --metadata title="'
+			.. title .. '" ' .. filename
 	local handle = io.popen(cmd)
 	local html = handle:read("*a")
 	handle:close()
