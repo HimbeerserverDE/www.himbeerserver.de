@@ -11,27 +11,25 @@ for _, v in ipairs(rand) do
 end
 math.randomseed(seed)
 
-local passwords = {
-	strongest = {},
-	strong = {},
-	medium = {},
-	weak = {},
+local chars = {
+	strongest = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+	strong = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+	medium = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+	weak = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
 }
 
+-- generator function
+local function gen(from, len)
+	
+end
+
+local passwords = {}
 for i = 1, 5 do
-	table.insert(passwords.strongest, gen_strongest())
-	table.insert(passwords.strong, gen_strong())
-	table.insert(passwords.medium, gen_medium())
-	table.insert(passwords.weak, gen_weak())
+	passwords["strongest" .. tostring(i)] = gen(chars.strongest, 32)
+	passwords["strong" .. tostring(i)] = gen(chars.strong, 32)
+	passwords["medium" .. tostring(i)] = gen(chars.medium, 32)
+	passwords["weak" .. tostring(i)] = gen(chars.weak, 16)
 end
 
-local data = {}
-for k, t in pairs(passwords) do
-	for i, v in ipairs(t) do
-		data[k .. tostring(i)] = v
-	end
-end
-
-cgi.content(file.process("/password_generator.md", data))
-
+cgi.content(file.process("/password_generator.md", passwords))
 cgi.done()
