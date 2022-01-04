@@ -20,7 +20,11 @@ local chars = {
 
 -- generator function
 local function gen(from, len)
-	
+	local result = ""
+	for i = 1, len do
+		local j = math.random(1, #from)
+		result = result .. from[j]
+	end
 end
 
 local passwords = {}
