@@ -28,6 +28,8 @@ local function gen(from, len)
 		local j = math.random(1, #from)
 		result = result .. from:sub(j, j)
 	end
+
+	return result
 end
 
 local passwords = {}
