@@ -51,7 +51,7 @@ function file.process(uri, templates, params)
 	end
 
 	local lines = contents:split("\n")
-	local title, num = lines[1]:gsub("# ", "")
+	local title, num = lines[1]:gsub("^(# )", "")
 	if num ~= 1 then
 		return nil
 	end
@@ -62,7 +62,7 @@ function file.process(uri, templates, params)
 	local filename = os.tmpname()
 	file.write(filename, contents)
 
-	params = (params or ""):match("^[%a%d=]*$") or ""
+	params = (params or ""):match("^([%a%d=]*)$") or ""
 
 	local cmd = 'pandoc ' .. params .. ' --standalone --metadata title="'
 			.. title .. '" ' .. filename
