@@ -44,14 +44,19 @@ function file.process(uri, templates)
 		return nil
 	end
 
-	for template, value in pairs(templates) do
-		contents = contents:gsub("%${" .. template .. "}", value)
+	if templates then
+		for template, value in pairs(templates) do
+			contents = contents:gsub("%${" .. template .. "}", value)
+		end
 	end
 
 	local lines = contents:split("\n")
-	local title = lines[1]:gsub("# ", "")
-	table.remove(lines, 1)
+	local title, num = lines[1]:gsub("# ", "")
+	if num ~= 1 then
+		return nil
+	end
 
+	table.remove(lines, 1)
 	contents = table.concat(lines, "\n")
 
 	local filename = os.tmpname()
