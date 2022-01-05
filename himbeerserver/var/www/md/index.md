@@ -64,7 +64,6 @@ This is a list of the languages and tools I'm able to use at the moment.
 * Lua
 * Java
 * Bash
-* Zsh
 * PHP
 * SQL
 * Rust
