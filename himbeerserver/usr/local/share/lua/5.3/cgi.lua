@@ -193,6 +193,16 @@ function cgi.content(data)
 	return not not data
 end
 
+function cgi.serve(data)
+	if data then
+		cgi.content(data)
+	else
+		cgi.status(500)
+	end
+
+	cgi.done()
+end
+
 -- finish response
 function cgi.done()
 	if not headers_complete then
