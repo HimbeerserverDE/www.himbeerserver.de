@@ -36,7 +36,7 @@ You can find it [here](https://github.com/HimbeerserverDE/i3-setup).
 
 ## Work
 _If you have any suggestions on what to put on this list please
-[contact me](#Profiles)!_
+[contact me](#profiles)!_
 
 * [mt-multiserver-proxy](/cgi-bin/work.lua?project=minetestproxy), a reverse
 proxy for Minetest
