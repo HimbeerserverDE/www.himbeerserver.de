@@ -89,6 +89,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 * PXE
 * iPXE
 * LTSP
+* NFS
 
 #### Client
 * ldap-utils
@@ -104,6 +105,8 @@ This is a list of the languages and tools I'm able to use at the moment.
 * Blender
 * OpenShot
 * NetworkManager
+* Kerberos
+* NFS
 
 ### APIs / Libraries / Frameworks
 * node.js
