@@ -40,5 +40,4 @@ for i = 1, 5 do
 	passwords["weak" .. tostring(i)] = gen(chars.weak, 16)
 end
 
-cgi.content(file.process("/password_generator.md", passwords))
-cgi.done()
+cgi.serve(file.process("/password_generator.md", passwords))
