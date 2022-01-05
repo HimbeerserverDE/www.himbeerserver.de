@@ -3,8 +3,5 @@
 local cgi = require "cgi"
 local file = require "file"
 
-cgi.content(file.process("/index.md", {
-	name = "test",
-}))
-
+cgi.content(file.process("/index.md", nil, "--toc"))
 cgi.done()
