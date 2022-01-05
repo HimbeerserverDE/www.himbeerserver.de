@@ -35,7 +35,7 @@ function file.write(path, contents)
 	return true
 end
 
-function file.process(uri, templates)
+function file.process(uri, templates, params)
 	local tmp = "/var/tmp/himbeerserver" .. uri
 	path = "/var/www/md" .. uri
 
@@ -62,7 +62,9 @@ function file.process(uri, templates)
 	local filename = os.tmpname()
 	file.write(filename, contents)
 
-	local cmd = 'pandoc --standalone --metadata title="'
+	params = params:match("^[%a%d=]*$") or ""
+
+	local cmd = 'pandoc ' .. params .. ' --standalone --metadata title="'
 			.. title .. '" ' .. filename
 	local handle = io.popen(cmd)
 	local html = handle:read("*a")
