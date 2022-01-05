@@ -62,7 +62,7 @@ function file.process(uri, templates, params)
 	local filename = os.tmpname()
 	file.write(filename, contents)
 
-	params = params:match("^[%a%d=]*$") or ""
+	params = (params or ""):match("^[%a%d=]*$") or ""
 
 	local cmd = 'pandoc ' .. params .. ' --standalone --metadata title="'
 			.. title .. '" ' .. filename
