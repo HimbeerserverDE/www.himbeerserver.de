@@ -30,7 +30,7 @@ You can find it [here](https://github.com/HimbeerserverDE/i3-setup).
 * **YouTube:** [HimbeerserverDE](https://www.youtube.com/channel/UCRuSC9WNapuA4Gm-kU_gjGA)
 * **Reddit:** [HimbeerserverDE](https://reddit.com/user/HimbeerserverDE)
 * **IRC (libera.chat):** HimbeerserverDE
-* **IRC (otfc.net):** HimbeerserverDE
+* **IRC (oftc.net):** HimbeerserverDE
 * **Email:** himbeerserverde@gmail.com
 * **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
 
