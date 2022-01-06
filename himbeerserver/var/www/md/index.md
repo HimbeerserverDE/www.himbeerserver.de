@@ -1,7 +1,7 @@
 # HimbeerserverDE
 
 ## Introduction
-I'm Himbeer, a 15 year old programmer. I like networking, especially IPv6
+I'm Himbeer, a 15 year old programmer and sysadmin. I like networking, especially IPv6
 (which is why this page is IPv6-only). Because of this I'm using my own
 networking hardware and software instead of the low quality device
 the ISP wants everyone to use that lacks basic configuration options
