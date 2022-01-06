@@ -30,4 +30,4 @@ The code can be found [on GitHub](https://github.com/HimbeerserverDE/www.himbeer
 * `${weak4}`
 * `${weak5}`
 
-[Return to Index Page](/)
+[Return to Index Page](/cgi-bin/index.lua)
