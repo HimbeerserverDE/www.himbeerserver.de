@@ -18,7 +18,8 @@ I also made some small web apps in the past that I'll eventually publish here.
 I use Debian and Raspberry Pi OS actively, but I'd probably be able to use some
 other distros if I wanted to. My window manager is
 [i3-gaps](https://github.com/Airblader/i3).
-The setup is a modified version of Fleckenstein's i3-setup.
+I'm using a modified version of
+[Fleckenstein's i3-setup](https://github.com/EliasFleckenstein03/i3-setup).
 You can find it [here](https://github.com/HimbeerserverDE/i3-setup).
 
 ## Profiles
