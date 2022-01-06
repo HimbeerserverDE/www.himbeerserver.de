@@ -42,6 +42,7 @@ _If you have any suggestions on what to put on this list please
 proxy for Minetest
 * [mt-multiserver-chatcommands](/cgi-bin/work.lua?project=minetestproxy#commands),
 a plugin providing standard chat commands for mt-multiserver-proxy
+* [A simple password generator](/cgi-bin/password_generator.lua)
 * [This website](/cgi-bin/work.lua?project=www3)
 
 ### Minetest mods
