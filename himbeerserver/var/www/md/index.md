@@ -1,6 +1,7 @@
-# HimbeerserverDE
 
-## Introduction
+% HimbeerserverDE
+
+# Introduction
 I'm Himbeer, a 15 year old programmer and sysadmin. I like networking, especially IPv6
 (which is why this page is IPv6-only). Because of this I'm using my own
 networking hardware and software instead of the low quality device
@@ -22,7 +23,7 @@ I'm using a modified version of
 [Fleckenstein's i3-setup](https://github.com/EliasFleckenstein03/i3-setup).
 You can find it [here](https://github.com/HimbeerserverDE/i3-setup).
 
-## Profiles
+# Profiles
 * **GitHub:** [HimbeerserverDE](https://github.com/HimbeerserverDE)
 * **GitLab:** [HimbeerserverDE](https://gitlab.com/HimbeerserverDE)
 * **Bitbucket:** [HimbeerserverDE](https://bitbucket.org/HimbeerserverDE)
@@ -35,7 +36,7 @@ You can find it [here](https://github.com/HimbeerserverDE/i3-setup).
 * **Email:** himbeerserverde@gmail.com
 * **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
 
-## Work
+# Work
 _If you have any suggestions on what to put on this list please
 [contact me](#profiles)!_
 
@@ -46,17 +47,17 @@ a plugin providing standard chat commands for mt-multiserver-proxy
 * [A simple online password generator](/cgi-bin/password_generator.lua)
 * [This website](/cgi-bin/work.lua?project=www3)
 
-### Minetest mods
+## Minetest mods
 * [dynamic_liquid](/cgi-bin/work.lua?project=dynamicliquid), a fork of
 [minetest-mods/dynamic_liquid](https://github.com/minetest-mods/dynamic_liquid)
 * [waterworks](/cgi-bin/work.lua?project=waterworks), a fork of
 [FaceDeer/waterworks](https://github.com/FaceDeer/waterworks) that actually
 does what the documentation says
 
-## Skills
+# Skills
 This is a list of the languages and tools I'm able to use at the moment.
 
-### Languages
+## Languages
 * C
 * C++
 * Go
@@ -70,9 +71,9 @@ This is a list of the languages and tools I'm able to use at the moment.
 * SQL
 * Rust
 
-### Software
+## Software
 
-#### Server
+### Server
 * Apache
 * nginx
 * SQLite3
@@ -93,7 +94,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 * LTSP
 * NFS
 
-#### Client
+### Client
 * ldap-utils
 * sssd
 * PAM
@@ -110,7 +111,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 * Kerberos
 * NFS
 
-### APIs / Libraries / Frameworks
+## APIs / Libraries / Frameworks
 * node.js
 * jQuery
 * OpenGL core v3.0+
@@ -118,7 +119,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 * linmath.h
 * Minetest
 
-## Friends
+# Friends
 This is a list of my friends with links to their main online presence
 if they have one.
 

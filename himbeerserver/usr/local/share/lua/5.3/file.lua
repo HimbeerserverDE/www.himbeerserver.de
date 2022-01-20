@@ -51,21 +51,15 @@ function file.process(uri, templates, params)
 	end
 
 	local lines = contents:split("\n")
-	local title, num = lines[1]:gsub("^(# )", "")
-	if num ~= 1 then
-		return nil
-	end
-
 	table.remove(lines, 1)
 	contents = table.concat(lines, "\n")
 
 	local filename = os.tmpname()
 	file.write(filename, contents)
 
-	params = (params or ""):match("^([%a%d=]*)$") or ""
+	params = (params or ""):match("^([%a%d-=]*)$") or ""
 
-	local cmd = 'pandoc ' .. params .. ' --standalone --metadata title="'
-			.. title .. '" ' .. filename
+	local cmd = 'pandoc ' .. params .. ' --standalone ' .. filename
 	local handle = io.popen(cmd)
 	local html = handle:read("*a")
 	handle:close()
