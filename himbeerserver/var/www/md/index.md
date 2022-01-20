@@ -117,3 +117,17 @@ This is a list of the languages and tools I'm able to use at the moment.
 * GLFW
 * linmath.h
 * Minetest
+
+## Friends
+This is a list of my friends with links to their main online presence
+if they have one.
+
+* [Fleckenstein](https://fleckenstein.elidragon.com)
+* [DerZombiiie](https://derzombiiie.com)
+* [j45](https://j1233.minetest.land)
+* [TheodorSmall](https://github.com/TheodorSmall)
+* SCPP
+* [Rapunzel](https://github.com/RapunzelE)
+* [anon5](https://github.com/anon55555)
+* Typischer
+* yayyer
