@@ -1,5 +1,3 @@
-local json = require "lunajson"
-
 cgi = {}
 
 cgi.none = "None"
