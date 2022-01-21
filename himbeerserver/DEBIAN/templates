@@ -1,6 +1,6 @@
 Template: himbeerserver/domain
 Type: string
-Default: "himbeerserver.de"
+Default: himbeerserver.de
 Description: Enter the (sub)domain you wish to use.
 
 Template: himbeerserver/email
