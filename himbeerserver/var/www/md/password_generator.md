@@ -1,4 +1,3 @@
-
 % Password Generator
 
 This page generates a few passwords on the server and displays them to the user.
