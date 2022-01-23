@@ -36,7 +36,6 @@ function file.write(path, contents)
 end
 
 function file.process(uri, templates, params)
-	local tmp = "/var/tmp/himbeerserver" .. uri
 	path = "/var/www/md" .. uri
 
 	local contents = file.read(path)
