@@ -49,10 +49,6 @@ function file.process(uri, templates, params)
 		end
 	end
 
-	local lines = contents:split("\n")
-	table.remove(lines, 1)
-	contents = table.concat(lines, "\n")
-
 	local filename = os.tmpname()
 	file.write(filename, contents)
 
