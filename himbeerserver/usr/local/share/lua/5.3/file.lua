@@ -54,7 +54,8 @@ function file.process(uri, templates, params)
 
 	params = (params or ""):match("^([%a%d-=]*)$") or ""
 
-	local cmd = 'pandoc ' .. params .. ' --standalone ' .. filename
+	local css = '--css /var/www/css/common.css'
+	local cmd = 'pandoc ' .. params .. ' ' .. css .. ' --standalone ' .. filename
 	local handle = io.popen(cmd)
 	local html = handle:read("*a")
 	handle:close()
