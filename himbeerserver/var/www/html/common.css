@@ -1,0 +1,9 @@
+body {
+	background-color: black;
+	color: #0F0;
+	font-family: Monospace;
+}
+
+body a {
+	color: yellow;
+}

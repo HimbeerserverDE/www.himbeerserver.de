@@ -54,7 +54,7 @@ function file.process(uri, templates, params)
 
 	params = (params or ""):match("^([%a%d-=]*)$") or ""
 
-	local static_params = '--css /var/www/css/common.css -f markdown --standalone '
+	local static_params = '--css /common.css -f markdown --standalone '
 	local cmd = 'pandoc ' .. params .. ' ' .. static_params .. ' ' .. filename
 	local handle = io.popen(cmd)
 	local html = handle:read("*a")
