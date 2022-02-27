@@ -32,7 +32,7 @@ You can find it [here](https://github.com/HimbeerserverDE/i3-setup).
 * **Reddit:** [HimbeerserverDE](https://reddit.com/user/HimbeerserverDE)
 * **IRC (libera.chat):** HimbeerserverDE
 * **IRC (oftc.net):** HimbeerserverDE
-* **Email:** himbeerserverde@gmail.com
+* **Email (S/MIME):** [himbeerserverde@gmail.com](mailto:himbeerserverde@gmail.com)
 * **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
 
 # Work
