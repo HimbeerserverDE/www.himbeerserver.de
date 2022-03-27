@@ -69,6 +69,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 * PHP
 * SQL
 * Rust
+* Python
 
 ## Software
 
@@ -117,6 +118,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 * GLFW
 * linmath.h
 * Minetest
+* Flask
 
 # Friends
 This is a list of my friends with links to their main online presence
