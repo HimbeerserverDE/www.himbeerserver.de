@@ -34,3 +34,7 @@ remove any existing installations of the driver.
 The driver should now automatically be loaded. It appears that it's
 loaded at boot time automatically, but I haven't tested it yet.
 If you can confirm or disprove this please let me know.
+
+[Return to Guide List](/cgi-bin/guides.lua)
+
+[Return to Index Page](/cgi-bin/index.lua)
