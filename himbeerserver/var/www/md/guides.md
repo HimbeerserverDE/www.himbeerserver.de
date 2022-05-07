@@ -6,6 +6,6 @@ or that I've struggled with for a long time.
 [Return to Index Page](/cgi-bin/index.lua)
 
 # List
-* Nothing to see here yet
+* [rtl8812au on Raspberry Pi with kernel 5.10.103-v7l](/cgi-bin/guide/wifi103.lua)
 
 [Return to Index Page](/cgi-bin/index.lua)

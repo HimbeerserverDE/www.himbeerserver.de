@@ -7,4 +7,4 @@ Version: 0.1.5
 Architecture: all
 Priority: optional
 Depends: apache2, lua5.3, liblua5.3-dev, certbot, python3-certbot-apache, pandoc
-Installed-Size: 234
+Installed-Size: 240
