@@ -22,6 +22,10 @@ The polybar setup was written by [Fleckenstein](#friends) and modified
 to display a second bar on a second monitor. You can find everything
 [here](https://github.com/HimbeerserverDE/bspwm-setup).
 
+# Guides
+I occasionally upload setup guides for services that are difficult to
+understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
+
 # Profiles
 * **GitHub:** [HimbeerserverDE](https://github.com/HimbeerserverDE)
 * **GitLab:** [HimbeerserverDE](https://gitlab.com/HimbeerserverDE)
