@@ -7,5 +7,6 @@ or that I've struggled with for a long time.
 
 # List
 * [rtl8812au on Raspberry Pi with kernel 5.10.103-v7l](/cgi-bin/guide/wifi103.lua)
+* [Kerberized NFS: How to fix "access denied by server"](/cgi-bin/guide/krbnfs.lua)
 
 [Return to Index Page](/cgi-bin/index.lua)
