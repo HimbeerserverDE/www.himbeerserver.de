@@ -31,7 +31,7 @@ If the last command gives an error because the DKMS module already exists,
 remove any existing installations of the driver.
 
 # Loading
-The driver should now automatically be loaded. It appears that it's
+The driver should now automatically be loaded. It seems to be
 loaded at boot time automatically, but I haven't tested it yet.
 If you can confirm or disprove this please let me know.
 
