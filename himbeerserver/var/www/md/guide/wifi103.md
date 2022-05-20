@@ -35,6 +35,22 @@ sed -i 's/^MAKE="/MAKE="ARCH=arm\ /' dkms.conf
 sudo make dkms_install
 ```
 
+**For 64-bit, these are the commands to run:**
+
+```sh
+sudo apt update && sudo apt install -y git dkms
+
+git clone https://github.com/aircrack-ng/rtl8812au.git
+cd rtl8812au/
+
+sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
+sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
+export ARCH=arm
+sed -i 's/^MAKE="/MAKE="ARCH=arm\ /' dkms.conf
+
+sudo make dkms_install
+```
+
 If the last command gives an error because the DKMS module already exists,
 remove any existing installations of the driver.
 
