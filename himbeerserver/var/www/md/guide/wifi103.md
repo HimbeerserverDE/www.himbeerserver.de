@@ -9,6 +9,14 @@ breaking NDP and preventing you from automatically connecting to the IPv6 intern
 Fortunately aircrack-ng maintains a working version of the driver. However it has
 to be compiled from source. Here's how.
 
+# Kernel Headers
+You may need to install the raspberry pi kernel headers.
+The apt package name is `raspberrypi-kernel-headers`.
+If you're using the 64-bit RPi OS, make sure to install
+the arm64 version of the package.
+Use `apt list raspberrypi-kernel-headers` to check if you have
+the correct version installed.
+
 # Installing
 Run the following shell commands. If you aren't using sudo, run commands that
 require root access in some other way.
