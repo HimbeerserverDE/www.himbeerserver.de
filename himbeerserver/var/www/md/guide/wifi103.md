@@ -14,10 +14,10 @@ Run the following shell commands. If you aren't using sudo, run commands that
 require root access in some other way.
 
 ```sh
+sudo apt update && sudo apt install -y git dkms
+
 git clone https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au/
-
-sudo apt update && sudo apt install -y dkms
 
 sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 sed -i 's/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g' Makefile
