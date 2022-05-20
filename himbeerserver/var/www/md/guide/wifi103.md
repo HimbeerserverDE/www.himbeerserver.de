@@ -46,7 +46,7 @@ cd rtl8812au/
 sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
 sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
 export ARCH=arm64
-sed -i 's/^MAKE="/MAKE="ARCH=arm\ /' dkms.conf
+sed -i 's/^MAKE="/MAKE="ARCH=arm64\ /' dkms.conf
 
 sudo make dkms_install
 ```
